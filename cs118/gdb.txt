@@ -1,0 +1,26 @@
+Breakpoint 1 at 0x8049000: file counting.asm, line 12.
+Starting program: /root/counting.out 
+
+Breakpoint 1, _start () at counting.asm:12
+12		movl $15, %eax
+13		movl $20, %ebx
+16		incl %eax
+17		cmp %eax, %ebx
+18		jne top
+16		incl %eax
+17		cmp %eax, %ebx
+$1 = 17
+18		jne top
+16		incl %eax
+17		cmp %eax, %ebx
+$2 = 18
+18		jne top
+16		incl %eax
+17		cmp %eax, %ebx
+$3 = 19
+18		jne top
+16		incl %eax
+17		cmp %eax, %ebx
+$4 = 20
+18		jne top
+0x0804900f in ?? ()

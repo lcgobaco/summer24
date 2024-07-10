@@ -9,7 +9,8 @@ using namespace std;
 
 void printIntDigits(int num);
 
-int main() {
+int main() 
+{
     // prompt user to enter a positive integer
     int num;
     cout << "Enter a positive integer: ";
@@ -24,7 +25,8 @@ int main() {
  * Takes a positive integer as input and prints each digit of the integer one at a time.
  * @param num The positive integer to print the digits of.
  */
-void printIntDigits(int num) {
+void printIntDigits(int num) 
+{
     int digit;
     bool lastDigitZero = false;
 
@@ -39,7 +41,8 @@ void printIntDigits(int num) {
 
     // output each digit of the integer one at a time
     cout << "The digits of your integer are: " << endl;
-    while (num > 0) {
+    while (num > 0) 
+    {
         temp /= 10;
         digit = num / temp;
         cout << digit << endl;

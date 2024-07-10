@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class Stack {
+class Stack 
+{
     private:
         /**
          * The array that stores the stack.
@@ -57,7 +58,8 @@ class Stack {
  * Creates an empty stack with the specified size.
  * @param size The size of the stack.
  */
-Stack::Stack(int size) {
+Stack::Stack(int size) 
+{
     stackSize = size;
     stackArray = new int[stackSize];
     top = -1;
@@ -66,7 +68,8 @@ Stack::Stack(int size) {
 /**
  * Destructor for the stack.
  */
-Stack::~Stack() {
+Stack::~Stack() 
+{
     delete[] stackArray;
 }
 
@@ -74,7 +77,8 @@ Stack::~Stack() {
  * Pushes a value to the top of the stack.
  * @param value The value to push to the stack.
  */
-void Stack::push(int value) {
+void Stack::push(int value) 
+{
     // if stack is not full increment top and add the value to the stack (stack is full if top is stackSize - 1)
     if (top != stackSize - 1)
         stackArray[++top] = value;
@@ -83,7 +87,8 @@ void Stack::push(int value) {
 /**
  * Pops the value from the top of the stack.
  */
-void Stack::pop() {
+void Stack::pop() 
+{
     // if stack is not empty then decrement top to make the (stack is empty if top is -1) 
     if (top != -1)
         top--;
@@ -93,7 +98,8 @@ void Stack::pop() {
  * Returns the value at the top of the stack.
  * @return The value at the top of the stack.
  */
-int Stack::peek() {
+int Stack::peek() 
+{
     // returns -1 to indicate an empty stack
     if (top == -1) {
         return -1;
@@ -102,7 +108,8 @@ int Stack::peek() {
     return stackArray[top];
 }
 
-int main() {
+int main() 
+{
     // create stack with size 5
     Stack stack(5);
 
