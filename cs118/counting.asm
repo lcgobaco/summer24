@@ -21,7 +21,12 @@ _start:
 
 top:
 	incl %eax
-	cmp %eax, %ebx
+	cmp %ebx, %eax
 	jne top
 done:
 	movl %eax, final
+
+    # Exit system call
+    movl $1, %eax      # System call number (sys_exit)
+    xorl %ebx, %ebx    # Exit code 0
+    int $0x80          # Interrupt to make the system call

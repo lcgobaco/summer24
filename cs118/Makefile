@@ -1,4 +1,5 @@
 COMPILER = g++ -std=c++14 -g
+ASM = as 
 
 default: main
 
@@ -15,6 +16,10 @@ project2.o: project2.cpp
 
 project3.o: project3.cpp
 	$(COMPILER) -c $<
+
+counting:
+	as -o counting.o counting.asm
+	ld -o counting counting.o
 
 clean:
 	rm -f main *.o
