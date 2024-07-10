@@ -17,7 +17,7 @@ project2.o: project2.cpp
 project3.o: project3.cpp
 	$(COMPILER) -c $<
 
-counting:
+counting: counting.asm
 	as -o counting.o counting.asm
 	ld -o counting counting.o
 
