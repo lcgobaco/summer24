@@ -1,0 +1,16 @@
+Calculate digits and push them onto the stack
+Also, count how many digits there are
+   counter = 0
+   next_digit
+      Calculate number mod 10    Push this onto stack
+      Calculate number div 10    Store this back into number
+      counter ++
+      if number > 0 then goto next_digit
+
+Print the digits
+   while
+      pop
+      "Print" what was popped
+      decrement counter
+      if counter > 0 then goto while
+
