@@ -21,6 +21,10 @@ counting: counting.asm
 	as --gstabs -o counting.o counting.asm
 	ld -o counting counting.o
 
+muldiv: muldiv.asm
+	as --gstabs -o muldiv.o muldiv.asm
+	ld -o muldiv muldiv.o
+
 
 
 clean:

@@ -10,9 +10,9 @@ sourceLong:  .long  5000
 
 .text
 
-.globl _main
+.globl _start
 
-_main:
+_start:
      
      movw  opWord, %ax
      imulw  %ax
