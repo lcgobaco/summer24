@@ -30,6 +30,11 @@ displays: displays.asm
 	ld -o displays displays.o
 
 
+decimals: decimals.asm
+	as --gstabs -o decimals.o decimals.asm
+	ld -o decimals decimals.o
+
+
 
 clean:
 	rm -f main *.o
