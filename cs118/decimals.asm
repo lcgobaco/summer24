@@ -9,19 +9,19 @@ newline:    .ascii "\n"
 
 _start:
     mov $123456789, %rax
-    xor %rcx, %rcx
+    xor %r8, %r8
 
 next_digit:
     xor %rdx, %rdx
     mov $10, %rbx
     div %rbx
     push %rdx
-    inc %rcx
+    add $1, %r8
     test %rax, %rax
     jnz next_digit
 
 print_digits:
-    cmp $0, %rcx
+    cmp $0, %r8
     je end_program
 
     pop %rdx
@@ -34,7 +34,7 @@ print_digits:
     mov $1, %rdx
     syscall
 
-    dec %rcx
+    sub $1, %r8
     jmp print_digits
 
 end_program:
