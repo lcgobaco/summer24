@@ -1,0 +1,146 @@
+Starting program: /home/lucas/summer24/cs118/displays 
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0xaaaa              -21846
+cx             0x10                16
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x5555              21845
+cx             0xf                 15
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x2aaa              10922
+cx             0xe                 14
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x1555              5461
+cx             0xd                 13
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0xaaa               2730
+cx             0xc                 12
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x555               1365
+cx             0xb                 11
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x2aa               682
+cx             0xa                 10
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x155               341
+cx             0x9                 9
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0xaa                170
+cx             0x8                 8
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x55                85
+cx             0x7                 7
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x2a                42
+cx             0x6                 6
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x15                21
+cx             0x5                 5
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0xa                 10
+cx             0x4                 4
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x5                 5
+cx             0x3                 3
+bl             0x1                 1
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x2                 2
+cx             0x2                 2
+bl             0x0                 0
+(gdb) c
+Continuing.
+
+Breakpoint 1, skip_set () at displays.asm:26
+26          shrw $1, %ax
+(gdb) i r ax cx bl
+ax             0x1                 1
+cx             0x1                 1
+bl             0x1                 1
+(gdb) c
+Continuing.
+[Inferior 1 (process 392262) exited normally]

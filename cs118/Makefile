@@ -25,6 +25,10 @@ muldiv: muldiv.asm
 	as --gstabs -o muldiv.o muldiv.asm
 	ld -o muldiv muldiv.o
 
+displays: displays.asm
+	as --gstabs -o displays.o displays.asm
+	ld -o displays displays.o
+
 
 
 clean:
