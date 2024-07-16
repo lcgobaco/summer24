@@ -54,3 +54,17 @@ Starting program: /home/lucas/summer24/cs118/muldiv
 Program received signal SIGILL, Illegal instruction.
 done () at muldiv.asm:37
 37	    syscall
+Function "main" not defined.
+Temporary breakpoint 1 (-qualified main) pending.
+Starting program: /home/lucas/summer24/cs118/muldiv.out 
+
+Program received signal SIGILL, Illegal instruction.
+done () at muldiv.asm:37
+37	    syscall
+Function "main" not defined.
+Temporary breakpoint 1 (-qualified main) pending.
+Starting program: /home/lucas/summer24/cs118/muldiv.out 
+
+Program received signal SIGILL, Illegal instruction.
+_start () at muldiv.asm:34
+34	     syscall
