@@ -34,23 +34,3 @@ Function "main" not defined.
 Temporary breakpoint 1 (-qualified main) pending.
 Starting program: /home/lucas/summer24/cs118/counting 
 [Inferior 1 (process 640786) exited normally]
-Function "main" not defined.
-Temporary breakpoint 1 (-qualified main) pending.
-Starting program: /home/lucas/summer24/cs118/muldiv 
-
-Program received signal SIGSEGV, Segmentation fault.
-0x08049036 in ?? ()
-Breakpoint 2 at 0x8049035: file muldiv.asm, line 32.
-Function "main" not defined.
-Temporary breakpoint 3 (-qualified main) pending.
-Starting program: /home/lucas/summer24/cs118/muldiv 
-
-Breakpoint 2, done () at muldiv.asm:32
-32	     nop
-Function "main" not defined.
-Temporary breakpoint 1 (-qualified main) pending.
-Starting program: /home/lucas/summer24/cs118/muldiv 
-
-Program received signal SIGILL, Illegal instruction.
-done () at muldiv.asm:37
-37	    syscall
