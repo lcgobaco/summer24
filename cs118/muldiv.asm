@@ -10,9 +10,9 @@ sourceLong:  .long  5000
 
 .text
 
-.globl _start
+.globl _main
 
-_start:
+_main:
      
      movw  opWord, %ax
      imulw  %ax
@@ -28,7 +28,5 @@ _start:
      movl  opLong, %edx
      idivl  sourceLong
 
-     # Exit the program
-     movl $60, %eax   # syscall: exit
-     xorl %edi, %edi  # status: 0
-     syscall
+done:
+     nop
