@@ -1,0 +1,6 @@
+Function "main" not defined.
+Temporary breakpoint 1 (-qualified main) pending.
+Starting program: /home/lucas/summer24/cs118/decimals.out 
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000401074 in ?? ()
