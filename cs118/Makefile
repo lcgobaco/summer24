@@ -29,12 +29,9 @@ displays: displays.asm
 	as --gstabs -o displays.o displays.asm
 	ld -o displays.out displays.o
 
-
 decimals: decimals.asm
 	as --gstabs -o decimals.o decimals.asm
 	ld -o decimals.out decimals.o
-
-
 
 clean:
 	rm -f main *.o
