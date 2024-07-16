@@ -19,20 +19,20 @@ project3.o: project3.cpp
 
 counting: counting.asm
 	as --gstabs -o counting.o counting.asm
-	ld -o counting counting.o
+	ld -o counting.out counting.o
 
 muldiv: muldiv.asm
-	as --gstabs -o muldiv.o muldiv.asm
-	ld -o muldiv muldiv.o
+	as --gstabs --32 -o muldiv.o muldiv.asm
+	ld -m elf_i386 -o muldiv.out muldiv.o
 
 displays: displays.asm
 	as --gstabs -o displays.o displays.asm
-	ld -o displays displays.o
+	ld -o displays.out displays.o
 
 
 decimals: decimals.asm
 	as --gstabs -o decimals.o decimals.asm
-	ld -o decimals decimals.o
+	ld -o decimals.out decimals.o
 
 
 

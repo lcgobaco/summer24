@@ -30,3 +30,8 @@ _start:
 
 done:
      nop
+
+    # Exit the program
+    movl $60, %eax   # syscall: exit
+    xorl %edi, %edi  # status: 0
+    syscall
