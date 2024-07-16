@@ -1,5 +1,5 @@
 COMPILER = g++ -std=c++14 -g
-ASM = as 
+ASM = as
 
 default: main
 
@@ -17,9 +17,24 @@ project2.o: project2.cpp
 project3.o: project3.cpp
 	$(COMPILER) -c $<
 
-counting:
-	as -o counting.o counting.asm
+counting: counting.asm
+	as --gstabs -o counting.o counting.asm
 	ld -o counting counting.o
+
+muldiv: muldiv.asm
+	as --gstabs -o muldiv.o muldiv.asm
+	ld -o muldiv muldiv.o
+
+displays: displays.asm
+	as --gstabs -o displays.o displays.asm
+	ld -o displays displays.o
+
+
+decimals: decimals.asm
+	as --gstabs -o decimals.o decimals.asm
+	ld -o decimals decimals.o
+
+
 
 clean:
 	rm -f main *.o
