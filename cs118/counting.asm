@@ -7,33 +7,21 @@
 # eax: stores value to count from
 # ebx: stores value to count to
 
-.section .data
+.data
+
 final:
-    .quad 0
+	.long 0
 
-.section .bss
+.text
 
-.section .text
 .globl _start
 _start:
-    mov $15, %eax
-    mov $20, %ebx
+	movl $15, %eax
+	movl $20, %ebx
 
 top:
-    incl %eax
-    cmp %ebx, %eax
-    jne top
-
+	incl %eax
+	cmp %eax, %ebx
+	jne top
 done:
-    movl %eax, final(%rip)
-
-    mov $1, %rax        # syscall: write
-    mov $1, %rdi        # file descriptor 1 is stdout
-    lea final(%rip), %rsi
-    mov $4, %rdx        # number of bytes to write (assuming int)
-    syscall
-
-    # Exit system call
-    mov $60, %rax       # syscall: exit
-    xor %rdi, %rdi      # status: 0
-    syscall
+	movl %eax, final

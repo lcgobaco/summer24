@@ -28,10 +28,7 @@ _start:
      movl  opLong, %edx
      idivl  sourceLong
 
-done:
-     nop
-
-    # Exit the program
-    movl $60, %eax   # syscall: exit
-    xorl %edi, %edi  # status: 0
-    syscall
+     # Exit the program
+     movl $60, %eax   # syscall: exit
+     xorl %edi, %edi  # status: 0
+     syscall

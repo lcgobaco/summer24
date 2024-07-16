@@ -43,7 +43,3 @@ end_program:
     mov $newline, %rsi
     mov $1, %rdx
     syscall
-
-    mov $60, %rax
-    xor %rdi, %rdi
-    syscall
