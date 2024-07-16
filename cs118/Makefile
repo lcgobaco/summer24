@@ -1,9 +1,9 @@
 COMPILER = g++ -std=c++14 -g
 ASM = as
 
-default: main
+default: all
 
-all: clean main
+all: clean main counting muldiv displays decimals
 
 main: project3.o
 	$(COMPILER) -o $@ $^
