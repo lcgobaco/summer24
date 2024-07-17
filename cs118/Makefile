@@ -3,7 +3,7 @@ ASM = as
 
 default: all
 
-all: clean main counting muldiv displays decimals
+all: clean main counting muldiv display decimals
 
 main: project3.o
 	$(COMPILER) -o $@ $^
@@ -25,9 +25,9 @@ muldiv: muldiv.asm
 	as --gstabs --32 -o muldiv.o muldiv.asm
 	ld -m elf_i386 -o muldiv.out muldiv.o
 
-displays: displays.asm
-	as --gstabs -o displays.o displays.asm
-	ld -o displays.out displays.o
+display: display.asm
+	as -g -o display.o display.asm
+	ld -o display.out display.o
 
 decimals: decimals.asm
 	as --gstabs -o decimals.o decimals.asm

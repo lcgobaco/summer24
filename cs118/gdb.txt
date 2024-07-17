@@ -4,3 +4,98 @@ Starting program: /home/lucas/summer24/cs118/decimals.out
 
 Program received signal SIGSEGV, Segmentation fault.
 0x0000000000401074 in ?? ()
+Breakpoint 1 at 0x401000: file display.asm, line 20.
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, _start () at display.asm:20
+20		movw $100, %ax
+21		movw $0b1000000000000000, %cx
+display () at display.asm:24
+24		movw %ax, %dx
+25		shr %cx 
+26		andw %cx, %dx
+27		addw %dx, %bx
+28		cmp $0, %ax
+$1 = 0
+$2 = 0
+29		jnz display
+24		movw %ax, %dx
+25		shr %cx 
+26		andw %cx, %dx
+27		addw %dx, %bx
+28		cmp $0, %ax
+$3 = 0
+29		jnz display
+24		movw %ax, %dx
+25		shr %cx 
+26		andw %cx, %dx
+27		addw %dx, %bx
+28		cmp $0, %ax
+$4 = 0
+Breakpoint 2 at 0x401014: file display.asm, line 28.
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, _start () at display.asm:20
+20		movw $100, %ax
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, _start () at display.asm:20
+20		movw $100, %ax
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, _start () at display.asm:20
+20		movw $100, %ax
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+Invalid register `%bx'
+bx             0x0                 0
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+bx             0x0                 0
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+bx             0x0                 0
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+bx             0x0                 0
+Continuing.
+
+Breakpoint 2, display () at display.asm:28
+28		cmp $0, %ax
+bx             0x0                 0
+Breakpoint 3 at 0x40100b: file display.asm, line 25.
+Continuing.
+
+Breakpoint 3, display () at display.asm:25
+25		shr %cx 
+dx             0x64                100
+bx             0x0                 0
+dx             0x64                100
+bx             0x0                 0
+cx             0x400               1024
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, _start () at display.asm:20
+20		movw $100, %ax
+dx             0x0                 0
+bx             0x0                 0
+cx             0x0                 0
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+
