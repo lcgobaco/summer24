@@ -17,15 +17,17 @@ result:
 
 .globl _start
 _start:
-	movw $100, %ax
-	movw $0b1000000000000000, %cx
+	#movw $100, %ax
+	movw $0b1000000001100100, %ax
+	#movw $0b1000000000000000, %cx
+	movw $0b0000000000000001, %cx
 
 display:
 	movw %ax, %dx
-	shr %cx 
 	andw %cx, %dx
 	addw %dx, %bx
-	cmp $0, %ax
-	jnz display
+	shl %cx
+	cmp %bx, %ax
+	jne display
 done:
 	movw %bx, result
