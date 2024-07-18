@@ -1,14 +1,14 @@
 .section .data
-    message: .ascii "Hello, Assembly World!\n"
-    messageLen = . - message
+    prompt: .ascii "Hello, Assembly World!\n"
+    promptSiz = . - prompt
 
 .section .text
     .globl _start
 
 _start:
     # Print the message
-    movl    $messageLen, %edx
-    movl    $message, %ecx
+    movl    $promptSiz, %edx
+    movl    $prompt, %ecx
     movl    $STDOUT, %ebx
     movl    $WRITE, %eax
     int     $0x80
