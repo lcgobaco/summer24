@@ -30,8 +30,8 @@ display: display.asm
 	ld -o display.out display.o
 
 decimals: decimals.asm
-	as --gstabs -o decimals.o decimals.asm
-	ld -o decimals.out decimals.o
+	as --gstabs --32 -o decimals.o decimals.asm
+	ld -m elf_i386 -o decimals.out decimals.o
 
 print: print.asm
 	as --gstabs -o print.o print.asm

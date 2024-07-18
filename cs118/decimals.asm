@@ -8,38 +8,47 @@ newline:    .ascii "\n"
 .global _start
 
 _start:
-    mov $123456789, %rax
-    xor %r8, %r8
 
-# uses %r8 as counter
+    mov $123456789, %eax
+
+    # Use %esi as counter
+    xor %esi, %esi
 next_digit:
-    xor %rdx, %rdx
-    mov $10, %rbx
-    div %rbx
-    add $'0', %rdx
-    push %rdx
-    add $1, %r8
-    test %rax, %rax
-    jg next_digit
+    xor %edx, %edx
+    mov $10, %ebx
+    div %ebx        # eax/ebx -> edx:eax (quotient in eax, remainder in edx)
+    add $'0', %dl
+    push %edx
+    inc %esi
+    test %eax, %eax
+    jnz next_digit
 
 print_digits:
-    cmp $0, %r8
-    je end_program
+    test %esi, %esi
+    jz print_newline
 
-    pop %rdx
+    pop %edx
     mov %dl, msg_digit
 
-    #print msg_digit
-    mov $1, %rax
-    mov $1, %rdi
-    mov $msg_digit, %rsi
-    mov $1, %rdx
-    syscall
+    # print msg_digit
+    mov $4, %eax
+    mov $1, %ebx
+    mov $msg_digit, %ecx
+    mov $1, %edx
+    int $0x80
 
-    sub $1, %r8
-    jg print_digits
+    dec %esi
+    jmp print_digits
+
+print_newline:
+    mov $4, %eax
+    mov $1, %ebx
+    mov $newline, %ecx
+    mov $1, %edx
+    int $0x80
 
 end_program:
-
-    mov %ax,0x4c00
-    int $0x21
+    # exit syscall
+    mov $1, %eax
+    xor %ebx, %ebx
+    int $0x80
