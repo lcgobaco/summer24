@@ -1,0 +1,21 @@
+Lab 9-"Print" the value in a register as a decimal number, one digit at a time
+
+Store an integer in any 32-bit register.  Create a loop that "displays" the digits of that number.  The word "displays" means to calculate the digits and convert them into ASCII, and then to print the ASCII.  (To convert a digit to ASCII, add 48 to it.)
+
+Here is an algorithm to use:
+
+Calculate digits and push them onto the stack
+Also, count how many digits there are
+   counter = 0
+   next_digit
+        Calculate number mod 10    Add 48 (decimal) and push that onto stack
+        Calculate number div 10    Store this back into number
+        counter ++
+        if number > 0 then goto next_digit
+
+Print the digits
+   while
+        pop
+        "Print" what was popped
+        decrement counter
+        if counter > 0 then goto while
