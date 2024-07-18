@@ -1,33 +1,34 @@
 # Name: Lucas Gobaco
 # Date: 16 July 2024
 # Program Name: Programming Project 8
-# Program Description: This program counts from the value in the register eax to the value in the register ebx.
+# Program Description: This program takes the bits of ax and puts it into bx, one at a time, starting with the least significant bit.
 
 # Register Use List:
 # ax: stores value to copy bits from
-# bx: register that loop copies ax's bits to
-# cx: stores mask to and ax to
+# bx: stores mask
+# cx: stores current digit
 
 .data
 
-result:
-	.word 0
+value:
+	.word 0b0000000001100101		# 101 in decimal
 
 .text
 
 .globl _start
 _start:
-	#movw $101, %ax
-	movw $0b0000000001100101, %ax
-	#movw $0b1000000000000000, %cx
-	movw $0b1000000000000000, %cx
+	movw value, %ax				
+	movw $0b1000000000000000, %bx	# mask
 
 display:
-	movw %ax, %dx
-	andw %cx, %dx
-	addw %dx, %bx
-	shr %cx
-	cmp %bx, %ax
-	jne display
-done:
-	movw %bx, result
+	movw %ax, %cx		# copy ax to cx 
+	andw %bx, %cx		# use mask
+	cmp $0, %cx		
+	je nostore			# if digit is zero, jump to nostore
+	movw $1, %cx		
+	jmp nostore			# if not, change cx to  continue
+	
+nostore:
+	shr %bx				# shift mask right by 1
+	cmp $0, %bx			
+	jne display			# if mask is not 0, loop again

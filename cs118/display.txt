@@ -1,0 +1,85 @@
+Breakpoint 1 at 0x40101e: file display.asm, line 32.
+Starting program: /home/lucas/summer24/cs118/display.out 
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$1 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$2 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$3 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$4 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$5 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$6 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$7 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$8 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$9 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$10 = 1
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$11 = 1
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$12 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$13 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$14 = 1
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$15 = 0
+Continuing.
+
+Breakpoint 1, nostore () at display.asm:32
+32		shr %bx				# shift mask right by 1
+$16 = 1
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000401027 in ?? ()
