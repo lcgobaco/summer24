@@ -1,0 +1,12 @@
+Lab 12-Reading an integer from the keyboard
+
+Create a subroutine to read an integer from the keyboard.  Return that integer in eax.
+
+Here is logic to convert the user's input to an integer (numvalue in this case):
+
+     Initialize an integer to 0.  I called this integer numvalue.  (This will contain the result.)
+     Loop while next user digit is not 10
+          Get next user digit
+          Convert that digit from ASCII to an actual digit.  (Subtract 48 from the digit)
+          Multiply numvalue by 10 and add the new digit to the result.
+          Store that result back in numvalue.
