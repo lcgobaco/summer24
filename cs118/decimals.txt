@@ -1,0 +1,48 @@
+Breakpoint 1 at 0x8049013: file decimals.asm, line 37.
+Starting program: /home/lucas/summer24/cs118/decimals.out 
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$1 = 57
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$2 = 56
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$3 = 55
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$4 = 54
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$5 = 53
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$6 = 52
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$7 = 51
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$8 = 50
+Continuing.
+
+Breakpoint 1, next_digit () at decimals.asm:37
+37	    push %edx               # take remainder and push into stack
+$9 = 49
+Continuing.
+[Inferior 1 (process 935850) exited normally]
