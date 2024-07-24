@@ -41,6 +41,10 @@ subroutine: subroutine.asm
 	as --gstabs --32 -o subroutine.o subroutine.asm
 	ld -m elf_i386 -o subroutine.out subroutine.o
 
+keyboard: keyboard.asm
+	as --gstabs --32 -o keyboard.o keyboard.asm
+	ld -m elf_i386 -o keyboard.out keyboard.o
+
 
 cr: cr.asm
 	as --gstabs --32 -o cr.o cr.asm

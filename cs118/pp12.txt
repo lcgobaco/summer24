@@ -10,3 +10,5 @@ Here is logic to convert the user's input to an integer (numvalue in this case):
           Convert that digit from ASCII to an actual digit.  (Subtract 48 from the digit)
           Multiply numvalue by 10 and add the new digit to the result.
           Store that result back in numvalue.
+
+File: keyboard.asm

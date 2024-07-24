@@ -18,3 +18,5 @@ movl    $prompt, %ecx
 movl    $STDOUT, %ebx
 movl    $WRITE, %eax
 int     $0x80
+
+File: print.asm

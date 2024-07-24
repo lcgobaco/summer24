@@ -59,8 +59,8 @@ print_digits:
 print_newline:              # prints new line
     mov $WRITE, %eax
     mov $STDOUT, %ebx
-    mov $NEWLINE, %ecx
-    mov %ecx, msg_digit
+    # mov $NEWLINE, %ecx
+    mov $NEWLINE, msg_digit
     mov $msg_digit, %ecx
     mov $1, %edx
     int $0x80
