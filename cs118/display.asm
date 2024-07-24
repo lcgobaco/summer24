@@ -26,7 +26,7 @@ display:
 	cmp $0, %cx		
 	je nostore			# if digit is zero, jump to nostore
 	movw $1, %cx		
-	jmp nostore			# if not, change cx to  continue
+	jmp nostore			# if not, change cx and continue
 	
 nostore:
 	shr %bx				# shift mask right by 1

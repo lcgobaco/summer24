@@ -1,38 +1,54 @@
-.section .data
-msg_digit:  .ascii "0"
-newline:    .ascii "\n"
+# Name: Lucas Gobaco
+# Date: 18 July 2024
+# Program Name: Programming Project 9
+# Program Description: This program stores an integer in eax and displays its digits by converting them into ASCII, and then printing in ASCII. 
 
-.section .bss
+# Register Use List:
+# eax: stores the integer
+# ebx: stores 10 to divide eax by
+# ecx: stores address of output
+# edx: num of characters to write
+# esi: stores counter for number of digits
 
-.section .text
+.data
+
+    msg_digit:  .ascii "0"
+    newline:    .ascii "\n"
+
+    .equ    STDIN,0
+    .equ    STDOUT,1
+    .equ    READ,3
+    .equ    WRITE,4
+    .equ    EXIT,1
+    .equ    SUCCESS,0
+
+.text
+
 .global _start
-
 _start:
+    mov $123456789, %eax    # move integer to eax
+    xor %esi, %esi          # zero out esi to use as counter
 
-    mov $123456789, %eax
-
-    # Use %esi as counter
-    xor %esi, %esi
 next_digit:
-    xor %edx, %edx
-    mov $10, %ebx
-    div %ebx        # eax/ebx -> edx:eax (quotient in eax, remainder in edx)
-    add $'0', %dl
-    push %edx
-    inc %esi
-    test %eax, %eax
-    jnz next_digit
+    xor %edx, %edx          # zero out edx
+    mov $10, %ebx           # move 10
+    div %ebx                # divide eax by edx
+    add $'0', %dl           # add 0 in ASCII to offset edx
+    push %edx               # take remainder and push into stack
+    inc %esi                # increment counter
+    cmp $0, %eax
+    jne next_digit          # loop if eax is not zero 
 
 print_digits:
-    test %esi, %esi
-    jz print_newline
+    cmp $0, %esi
+    je print_newline        # print a new line if counter is zero
 
-    pop %edx
-    mov %dl, msg_digit
+    pop %edx                # remove top item from stack
+    mov %dl, msg_digit      # move 
 
-    # print msg_digit
-    mov $4, %eax
-    mov $1, %ebx
+    # print out msg_digit
+    mov $WRITE, %eax
+    mov $STDOUT, %ebx
     mov $msg_digit, %ecx
     mov $1, %edx
     int $0x80
@@ -41,14 +57,13 @@ print_digits:
     jmp print_digits
 
 print_newline:
-    mov $4, %eax
-    mov $1, %ebx
+    mov $WRITE, %eax
+    mov $STDOUT, %ebx
     mov $newline, %ecx
     mov $1, %edx
     int $0x80
 
-end_program:
-    # exit syscall
-    mov $1, %eax
-    xor %ebx, %ebx
-    int $0x80
+done:
+    mov $EXIT, %eax        # 
+    xor %ebx, %ebx      # zero out ebx
+    int $0x80           # exit to os
