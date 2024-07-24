@@ -37,6 +37,15 @@ print: print.asm
 	as --gstabs -o print.o print.asm
 	ld -o print.out print.o
 
+subroutine: subroutine.asm
+	as --gstabs --32 -o subroutine.o subroutine.asm
+	ld -m elf_i386 -o subroutine.out subroutine.o
+
+
+cr: cr.asm
+	as --gstabs --32 -o cr.o cr.asm
+	ld -m elf_i386 -o cr.out cr.o
+
 
 clean:
 	rm -f main *.o
