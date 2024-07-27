@@ -8,6 +8,7 @@ _start:
     movl $0, numvalue     # Initialize numvalue to 0
 
 loop:
+    movl $0, %eax
     call getchar          # Get next character
     cmpl $10, %eax        # Compare with newline (ASCII 10)
     je done               # If newline, we're done

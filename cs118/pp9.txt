@@ -19,3 +19,5 @@ Print the digits
         "Print" what was popped
         decrement counter
         if counter > 0 then goto while
+
+File: decimals.asm
