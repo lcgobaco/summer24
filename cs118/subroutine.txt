@@ -1,0 +1,12 @@
+Breakpoint 1 at 0x804906f: file subroutine.asm, line 89.
+Breakpoint 2 at 0x8049079: file subroutine.asm, line 92.
+Starting program: /home/lucas/summer24/cs118/subroutine.out 
+
+Breakpoint 1, _start () at subroutine.asm:89
+89	    call print_ascii        # calls print_ascii to print number
+eax            0x75bcd15           123456789
+Continuing.
+
+Breakpoint 2, _start () at subroutine.asm:92
+92	    call print_ascii        # calls print_ascii to print number
+eax            0x3ade68b1          987654321

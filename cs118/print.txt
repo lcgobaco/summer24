@@ -1,0 +1,12 @@
+Breakpoint 1 at 0x401005: file print.asm, line 30.
+Breakpoint 2 at 0x40100a: file print.asm, line 31.
+Starting program: /home/lucas/summer24/cs118/print.out 
+
+Breakpoint 1, _start () at print.asm:30
+30	    movl    $prompt, %ecx
+$1 = 23
+Continuing.
+
+Breakpoint 2, _start () at print.asm:31
+31	    movl    $STDOUT, %ebx
+$2 = 4202496
