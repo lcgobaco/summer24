@@ -40,7 +40,7 @@ getchar:
     # Read a single character from stdin
     mov $3, %eax         # sys_read system call
     mov $0, %ebx         # File descriptor (0 for stdin)
-    leal buffer, %ecx      # Buffer to store the character
+    mov $buffer, %ecx      # Buffer to store the character
     mov $1, %edx         # Read 1 bytes
     int $0x80
 
