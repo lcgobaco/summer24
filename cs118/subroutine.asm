@@ -1,41 +1,38 @@
 # Name: Lucas Gobaco
-# Date: 23 July 2024
+# Date: 26 July 2024
 # Program Name: Programming Project 11
-# Program Description: This program stores an integer in eax
-# and calls the print_ascii subroutine to print the integer in ascii format
+# Program Description: This program takes in a number in eax and calls the print_ascii subroutine to print the number in ascii format.
 
 # Register Use List:
-# eax: stores the integer
+# eax: stores the number to print
 # ebx: stores 10 to divide eax by
 # ecx: stores address of output
 # edx: num of characters to write
+# ebp: stores pointer to the base of the stack
+# esp: stores pointer to the top of the stackstack
 # esi: stores counter for number of digits
 
 .data
+    msg_digit:  .ascii "0"      # add to number to convert it into ascii equivalent
 
-    msg_digit:  .ascii "0"
-
+    # symbol table
     .equ    STDIN,0
     .equ    STDOUT,1
     .equ    READ,3
     .equ    WRITE,4
     .equ    EXIT,1
     .equ    SUCCESS,0
-    .equ   NEWLINE, 10
+    .equ    NEWLINE, 10
 
 .text
 
 .global print_ascii
-
-print_ascii:
-    # Prologue
+print_ascii:    
+    # saves current state of stack
     push %ebp
     mov %esp, %ebp
     push %ebx
     push %esi
-
-    # The number to print is already in EAX
-
     xor %esi, %esi          # zero out esi to use as counter
 
 next_digit:
@@ -56,7 +53,7 @@ print_digits:
     mov %edx, msg_digit     # copy edx to msg_digit to print out
 
     # print out msg_digit
-    push %eax               # save eax as it will be overwritten by syscall
+    push %eax               # save eax first as it will be overwritte
     mov $WRITE, %eax
     mov $STDOUT, %ebx
     mov $msg_digit, %ecx
@@ -68,7 +65,7 @@ print_digits:
     jmp print_digits        # loop until counter is zero
 
 print_newline:              # prints new line
-    push %eax               # save eax
+    push %eax               # save eax first
     mov $WRITE, %eax
     mov $STDOUT, %ebx
     mov $NEWLINE, %ecx
@@ -79,23 +76,22 @@ print_newline:              # prints new line
 
     pop %eax                # restore eax
 
-    # Epilogue
+    # restores stack to original state before subroutine was called
     pop %esi
     pop %ebx
     mov %ebp, %esp
     pop %ebp
     ret
 
-# Example usage:
 .global _start
 _start:
-    mov $123456789, %eax    # Move the integer to print into EAX
-    call print_ascii        # Call the subroutine
+    mov $123456789, %eax    # move number to print into eax
+    call print_ascii        # calls print_ascii to print number
 
-    mov $987654321, %eax    # Move the integer to print into EAX
-    call print_ascii        # Call the subroutine
+    mov $987654321, %eax    # move number to print into eax
+    call print_ascii        # calls print_ascii to print number
 
-    # Exit the program
-    mov $EXIT, %eax            # system call number for exit
-    xor %ebx, %ebx          # exit status 0
+    # exits the program
+    mov $EXIT, %eax       
+    xor %ebx, %ebx          
     int $0x80
