@@ -12,3 +12,31 @@ Here is logic to convert the user's input to an integer (numvalue in this case):
           Store that result back in numvalue.
 
 File: keyboard.asm
+
+Problems:
+
+22          movl %ebx, numvalue   # Store result back in numvalue
+(gdb) i r ecx ebx
+ecx            0x5                 5
+ebx            0x3039              12345
+(gdb) c
+Continuing.
+
+Breakpoint 1, loop () at keyboard.asm:24
+24          jmp loop              # Continue loop
+(gdb) c
+Continuing.
+6
+
+Breakpoint 3, loop () at keyboard.asm:20
+20          addl %ecx, %ebx       # Add new digit
+(gdb)
+Continuing.
+
+Breakpoint 4, loop () at keyboard.asm:22
+22          movl %ebx, numvalue   # Store result back in numvalue
+(gdb) i r ecx ebx
+ecx            0x406               1030
+ebx            0x1e640             124480
+
+MG: ecx stored 6 where did 4 come from?
