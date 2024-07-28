@@ -1,0 +1,6 @@
+Breakpoint 1 at 0x804902f: file keyboard.asm, line 46.
+Starting program: /home/lucas/summer24/cs118/keyboard.out 
+
+Breakpoint 1, done () at keyboard.asm:46
+46	    mov $EXIT, %eax      
+$1 = 698983

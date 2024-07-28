@@ -1,55 +1,59 @@
-.section .data
-    numvalue: .long 0
-    buffer: .space 1
+# Name: Lucas Gobaco
+# Date: 28 July 2024
+# Program Name: Programming Project 12
+# Program Description: This program reads an integer from the keyboard and then returns it into eax.
 
-.section .text
+# Register Use List:
+# eax: stores current keystroke 
+# ebx: temporarily stores final integer
+# ecx: stores location to read from
+# edx: stores maximum number of characters to read
+
+.data
+    numvalue: .long 0       # stores resulting integer
+    buffer: .space 1        # stores current keystroke
+
+    # symbol table
+    .equ    STDIN,0
+    .equ    READ,3
+    .equ    EXIT,1
+    .equ    RETURN, 10
+
+.text
+
 .globl _start
-
 _start:
-    movl $0, numvalue     # Initialize numvalue to 0
+    movl $0, numvalue     # initializes numvalue to zero
 
 loop:
-    mov $0, %eax
-    call getchar          # Get next character
-    cmp $10, %eax        # Compare with newline (ASCII 10)
-    je done               # If newline, we're done
+    mov $0, %eax        # initialize eax
+    call getchar        # load keystroke into eax
+    cmp $RETURN, %eax       
+    je done             # if return key was pressed, end program
 
-    sub $48, %eax        # Convert ASCII to digit
+    sub $48, %eax       # convert current keystroke from ascii to integer
 
-    mov numvalue, %ebx   # Load current numvalue
-    imul $10, %ebx       # Multiply numvalue by 10
-    add %eax, %ebx       # Add new digit
+    mov numvalue, %ebx   # temporarily store current integer into ebx
+    imul $10, %ebx       # multiply ebx by 10 to prepare for next digit
+    add %eax, %ebx       # add current digit to ebx
 
-    mov %ebx, numvalue   # Store result back in numvalue
+    mov %ebx, numvalue   # copy ebx back to numvalue
 
-    jmp loop              # Continue loop
+    jmp loop             # loop again until return key is pressed
 
 done:
-    # Exit program (you might want to print the result instead)
-    mov $1, %eax         # sys_exit system call
-    xor %ebx, %ebx       # Exit code 0
-    int $0x80             # Make system call
+    # gracefully exit out of program
+    mov $EXIT, %eax      
+    xor %ebx, %ebx      
+    int $0x80            
 
 getchar:
-    # Prologue
-    push %ebp
-    mov %esp, %ebp
-    push %ebx
-    push %esi
-
-    # Read a single character from stdin
-    mov $3, %eax         # sys_read system call
-    mov $0, %ebx         # File descriptor (0 for stdin)
-    mov $buffer, %ecx      # Buffer to store the character
-    mov $1, %edx         # Read 1 bytes
+    mov $READ, %eax         # constant for reading
+    mov $STDIN, %ebx         # constant for stdin
+    mov $buffer, %ecx    # location to read
+    mov $1, %edx         # maximum number of characters to read
     int $0x80
 
-    mov buffer, %eax
-
-    # Epilogue
-    pop %esi
-    pop %ebx
-    mov %ebp, %esp
-    pop %ebp
+    mov buffer, %eax    # moves keystroke to eax
 
     ret
