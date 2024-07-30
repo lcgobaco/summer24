@@ -33,7 +33,6 @@ next_digit:
     xor %edx, %edx          # zero out edx
     mov $10, %ebx           # move 10
     div %ebx                # divide eax by edx
-    add $'0', %edx          # add 0 in ASCII to offset edx
     push %edx               # take remainder and push into stack
     inc %esi                # increment counter
     cmp $0, %eax
@@ -44,6 +43,7 @@ print_digits:
     je print_newline        # print a new line if counter is zero
 
     pop %edx                # remove top item from stack
+    add $'0', %edx          # add 0 in ASCII to offset edx
     mov %edx, msg_digit     # copy edx to msg_digit to print out
 
     # print out msg_digit
