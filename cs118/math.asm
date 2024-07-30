@@ -1,14 +1,16 @@
 # Name: Lucas Gobaco
 # Date: 30 July 2024
 # Program Name: Programming Project 13
-# Program Description: This program reads two integers from the keyboard
-#    and then prints out their sum.
+# Program Description: This program reads two integers from the keyboard and then prints out their sum.
 
 # Register Use List:
-# eax: stores current keystroke
-# ebx: temporarily stores final integer
+# eax: in main stores first integer, in read subroutine stores current keystroke, in write subroutine stores number to print, and stores constants for read and write
+# ebx: in main stores sum, in temporarily stores final integer
 # ecx: stores location to read from
 # edx: stores maximum number of characters to read
+# ebp: stores pointer to the base of the stack
+# esp: stores pointer to the top of the stackstack
+# esi: stores counter for number of digits
 
 .data
     numvalue:   .long 0         # stores resulting integer
@@ -25,23 +27,24 @@
     .equ    RETURN, 10
 
 .text
-
+###########################################################################
+# GLOBL SUBROUTINE
+###########################################################################
 .globl _start
 _start:
-    # First call to read_int
+    # read first integer and store it in eax
     call read_int
     mov numvalue, %eax
-    push %eax  # Save the first number on the stack
+    push %eax 
 
-    # Second call to read_int
+    # read second integer
     call read_int
 
-    # Add the two numbers
-    pop %ebx   # Get the first number from the stack
-    add numvalue, %ebx  # Add the second number to it
+    # add both integers to ebx
+    pop %ebx 
+    add numvalue, %ebx 
 
-    # The sum is now in %ebx
-    # print out the sum
+    # print out ebx
     mov %ebx, %eax
     call print_ascii
 
@@ -51,6 +54,9 @@ done:
     xor %ebx, %ebx
     int $0x80
 
+###########################################################################
+# 1 OF 3.  READ_INT SUBROUTINE
+###########################################################################
 read_int:
     # saves current state of stack
     push %ebp
@@ -84,7 +90,9 @@ end_read_int:
     pop %ebp
 
     ret
-
+###########################################################################
+# 2 of 3. GETCHAR SUBROUTINE
+###########################################################################
 getchar:
     # saves current state of stack
     push %ebp
@@ -106,6 +114,10 @@ getchar:
     mov %ebp, %esp
     pop %ebp
     ret
+
+###########################################################################
+# 3 OF 3.  PRINT_ASCII SUBROUTINE
+###########################################################################
 
 print_ascii:
     # saves current state of stack
