@@ -1,0 +1,8 @@
+Lab 13-Doing math with integers
+
+Combine your subroutines from Labs 11 and 12 into one program.  Then use those subroutines (and more code) to
+
+read in an int, and
+read in a second int, and
+do some math with the two ints, and
+write out the answer.
