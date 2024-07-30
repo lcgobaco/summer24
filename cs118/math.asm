@@ -4,17 +4,33 @@
 # Program Description: This program reads two integers from the keyboard and then prints out their sum.
 
 # Register Use List:
-# eax: in main stores first integer, in read subroutine stores current keystroke, in write subroutine stores number to print, and stores constants for read and write
-# ebx: in main stores sum, in temporarily stores final integer
-# ecx: stores location to read from
-# edx: stores maximum number of characters to read
-# ebp: stores pointer to the base of the stack
-# esp: stores pointer to the top of the stackstack
-# esi: stores counter for number of digits
+#
+# _start:
+#       eax: stores first integer
+#       ebx: stores sum
+#
+# READ subroutine:
+#       eax: stores current keystroke 
+#       ebx: temporarily stores final integer
+#       ecx: stores location to read from
+#       edx: stores maximum number of characters to read
+#       ebp: stores pointer to the base of the stack
+#       esp: stores pointer to the top of the stack
+#       esi: stores counter for number of digits
+#
+# WRITE subroutine:
+#       eax: stores the number to print
+#       ebx: stores 10 to divide eax by
+#       ecx: stores address of output
+#       edx: num of characters to write
+#       ebp: stores pointer to the base of the stack
+#       esp: stores pointer to the top of the stackstack
+#       esi: stores counter for number of digits
+
 
 .data
-    numvalue:   .long 0         # stores resulting integer
-    buffer:     .byte     # stores current keystroke
+    numvalue:   .long 0         # stores inputted integer
+    buffer:     .byte           # stores current keystroke
     msg_digit:  .ascii "0"      # add to number to convert it into ascii equivalent
 
     # symbol table
@@ -27,9 +43,11 @@
     .equ    RETURN, 10
 
 .text
+
 ###########################################################################
-# GLOBL SUBROUTINE
+# _start
 ###########################################################################
+
 .globl _start
 _start:
     # read first integer and store it in eax
@@ -55,8 +73,9 @@ done:
     int $0x80
 
 ###########################################################################
-# 1 OF 3.  READ_INT SUBROUTINE
+# READ SUBROUTINE
 ###########################################################################
+
 read_int:
     # saves current state of stack
     push %ebp
@@ -90,9 +109,7 @@ end_read_int:
     pop %ebp
 
     ret
-###########################################################################
-# 2 of 3. GETCHAR SUBROUTINE
-###########################################################################
+
 getchar:
     # saves current state of stack
     push %ebp
@@ -116,7 +133,7 @@ getchar:
     ret
 
 ###########################################################################
-# 3 OF 3.  PRINT_ASCII SUBROUTINE
+# WRITE SUBROUTINE
 ###########################################################################
 
 print_ascii:

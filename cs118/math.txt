@@ -1,0 +1,19 @@
+Breakpoint 1 at 0x8049005: file math.asm, line 55.
+Breakpoint 2 at 0x8049010: file math.asm, line 62.
+Breakpoint 3 at 0x804901e: file math.asm, line 71.
+Starting program: /home/lucas/summer24/cs118/math.out 
+
+Breakpoint 1, _start () at math.asm:55
+55	    mov numvalue, %eax
+$1 = 39463
+Continuing.
+
+Breakpoint 2, _start () at math.asm:62
+62	    pop %ebx 
+$2 = 748304
+Continuing.
+
+Breakpoint 3, done () at math.asm:71
+71	    mov $EXIT, %eax
+eax            0x0                 0
+ebx            0xc0537             787767
