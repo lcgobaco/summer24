@@ -14,6 +14,7 @@
 
 .data
     msg_digit:  .ascii "0"      # add to number to convert it into ascii equivalent
+    buffer:     .long   0
 
     # symbol table
     .equ    STDIN,0
@@ -23,23 +24,43 @@
     .equ    EXIT,1
     .equ    SUCCESS,0
     .equ    NEWLINE, 10
+    .equ    LONG1, 123456789
+    .equ    LONG2, 987654321
 
 .text
 
 .global _start
 _start:
-    push $123456789   # push argument into stack
-    call print_ascii  # calls print_ascii to print number
+    push $LONG1              # push argument into stack
+    call print_ascii_from_stack  # calls print_ascii to print number
 
-    push $987654321    # push argument into stack
-    call print_ascii   # calls print_ascii to print number
+    push $LONG2               # push argument into stack
+    call print_ascii_from_stack   # calls print_ascii to print number
+
+    mov $LONG1, %eax
+    mov %eax, buffer
+    push $buffer
+    call increment
+
+    push buffer
+    call print_ascii_from_stack
+
+    mov $LONG2, %eax
+    mov %eax, buffer
+    push $buffer
+    call increment
+
+    push buffer
+    call print_ascii_from_stack
+
+
 
     # exits the program
     mov $EXIT, %eax
     xor %ebx, %ebx
     int $0x80
 
-print_ascii:
+print_ascii_from_stack:
     # saves current state of stack
     push %ebp
     mov %esp, %ebp
@@ -96,3 +117,21 @@ print_newline:              # prints new line
     mov %ebp, %esp
     pop %ebp
     ret
+
+increment:
+    # saves current state of stack
+    push %ebp
+    mov %esp, %ebp
+    push %ebx
+    push %esi
+
+    movl 8(%ebp), %eax
+    addl $1, (%eax)
+
+    # restores stack to original state before subroutine was called
+    pop %esi
+    pop %ebx
+    mov %ebp, %esp
+    pop %ebp
+    ret
+

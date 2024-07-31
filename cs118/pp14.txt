@@ -4,10 +4,13 @@ Do either Part a (easier) or Part b (harder)
 
 Part a.
 
-Change your code that prints an integer.  Instead of printing the value in eax, push the value onto the stack as an argument and print that.
+Change your code that prints an integer.
+Instead of printing the value in eax, push the value onto the stack as an argument and print that.
 
 Part b.
 
-Similar to Part a, put an argument on the stack.  This time the argument is a pointer to an int.  The subroutine should increment the value that the argument points to.
+Similar to Part a, put an argument on the stack.
+This time the argument is a pointer to an int.
+ The subroutine should increment the value that the argument points to.
 
 file: arguments.asm
