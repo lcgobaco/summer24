@@ -26,7 +26,19 @@
 
 .text
 
-.global print_ascii
+.global _start
+_start:
+    push $123456789   # push argument into stack
+    call print_ascii  # calls print_ascii to print number
+
+    push $987654321    # push argument into stack
+    call print_ascii   # calls print_ascii to print number
+
+    # exits the program
+    mov $EXIT, %eax
+    xor %ebx, %ebx
+    int $0x80
+
 print_ascii:
     # saves current state of stack
     push %ebp
@@ -84,16 +96,3 @@ print_newline:              # prints new line
     mov %ebp, %esp
     pop %ebp
     ret
-
-.global _start
-_start:
-    push $123456789   # push argument into stack
-    call print_ascii        # calls print_ascii to print number
-
-    push $987654321    # push argument into stack
-    call print_ascii        # calls print_ascii to print number
-
-    # exits the program
-    mov $EXIT, %eax
-    xor %ebx, %ebx
-    int $0x80
