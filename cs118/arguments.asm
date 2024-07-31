@@ -33,27 +33,31 @@
 _start:
     push $LONG1              # push argument into stack
     call print_ascii_from_stack  # calls print_ascii to print number
+    add $4, %esp             # pop argument from stack
 
     push $LONG2               # push argument into stack
     call print_ascii_from_stack   # calls print_ascii to print number
+    add $4, %esp               # pop argument from stack
 
     mov $LONG1, %eax
     mov %eax, buffer
     push $buffer
     call increment
+    add $4, %esp
 
     push buffer
     call print_ascii_from_stack
+    add $4, %esp
 
     mov $LONG2, %eax
     mov %eax, buffer
     push $buffer
     call increment
+    add $4, %esp
 
     push buffer
     call print_ascii_from_stack
-
-
+    add $4, %esp
 
     # exits the program
     mov $EXIT, %eax
