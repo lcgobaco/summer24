@@ -45,6 +45,10 @@ keyboard: keyboard.asm
 	as --gstabs --32 -o keyboard.o keyboard.asm
 	ld -m elf_i386 -o keyboard.out keyboard.o
 
+math: math.asm
+	as --gstabs --32 -o math.o math.asm
+	ld -m elf_i386 -o math.out math.o
+
 
 cr: cr.asm
 	as --gstabs --32 -o cr.o cr.asm
