@@ -49,6 +49,10 @@ math: math.asm
 	as --gstabs --32 -o math.o math.asm
 	ld -m elf_i386 -o math.out math.o
 
+arguments: arguments.asm
+	as --gstabs --32 -o arguments.o arguments.asm
+	ld -m elf_i386 -o arguments.out arguments.o
+
 
 cr: cr.asm
 	as --gstabs --32 -o cr.o cr.asm
