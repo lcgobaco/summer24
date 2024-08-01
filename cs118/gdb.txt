@@ -99,3 +99,18 @@ cx             0x0                 0
 Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
 Use 'set logging enabled off'.
 
+Undefined command: "nr".  Try "help".
+Breakpoint 1 at 0x804900b: file arguments.asm, line 41.
+Breakpoint 2 at 0x8049019: file arguments.asm, line 45.
+Breakpoint 3 at 0x8049026: file arguments.asm, line 51.
+Undefined command: "br56".  Try "help".
+Breakpoint 4 at 0x8049041: file arguments.asm, line 61.
+Breakpoint 5 at 0x804904f: file arguments.asm, line 66.
+Starting program: /home/lucas/summer24/cs118/arguments.out 
+
+Breakpoint 1, _start () at arguments.asm:41
+41	    add $4, %esp             # pop argument from stack
+Starting program: /home/lucas/summer24/cs118/arguments.out 
+
+Breakpoint 1, _start () at arguments.asm:41
+41	    add $4, %esp             # pop argument from stack

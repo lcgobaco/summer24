@@ -1,21 +1,27 @@
 # Name: Lucas Gobaco
-# Date: 26 July 2024
-# Program Name: Programming Project 11
-# Program Description: This program takes in a number in eax and calls the print_ascii subroutine to print the number in ascii format.
+# Date: 31 July 2024
+# Program Name: Programming Project 14
+# Program Description: This program puts a pointer that is an argument in a stack and increments the value the pointer points to.
 
 # Register Use List:
-# eax: stores the number to print
-# ebx: stores 10 to divide eax by
-# ecx: stores address of output
-# edx: num of characters to write
-# ebp: stores pointer to the base of the stack
-# esp: stores pointer to the top of the stackstack
-# esi: stores counter for number of digits
+#       eax: stores the number to print and stores arguments
+#       ebx: stores 10 to divide eax by
+#       ecx: stores address of output
+#       edx: num of characters to write
+#       ebp: stores pointer to the base of the stack
+#       esp: stores pointer to the top of the stackstack
+#       esi: stores counter for number of digits    
 
 .data
-    msg_digit:  .ascii "0"      # add to number to convert it into ascii equivalent
-    buffer:     .long   0
+    long1:
+        .long 12345     # first integer
 
+    long2:
+        .long 98765     # second integer
+
+    msg_digit:  
+        .ascii "0"      # add to number to convert it into ascii equivalent
+    
     # symbol table
     .equ    STDIN,0
     .equ    STDOUT,1
@@ -24,38 +30,38 @@
     .equ    EXIT,1
     .equ    SUCCESS,0
     .equ    NEWLINE, 10
-    .equ    LONG1, 123456789
-    .equ    LONG2, 987654321
 
 .text
 
 .global _start
 _start:
-    push $LONG1              # push argument into stack
+    # Part a: print out value from stack
+    push long1            # push argument into stack
     call print_ascii_from_stack  # calls print_ascii to print number
     add $4, %esp             # pop argument from stack
 
-    push $LONG2               # push argument into stack
+    push long2            # push argument into stack
     call print_ascii_from_stack   # calls print_ascii to print number
     add $4, %esp               # pop argument from stack
 
-    mov $LONG1, %eax
-    mov %eax, buffer
-    push $buffer
+    # Part b: put pointer as argument in stack and increment the value the pointer points to
+    # increment value stored at $long1 and pop
+    push $long1
     call increment
     add $4, %esp
 
-    push buffer
+    # print incremented long1 and pop
+    push long1
     call print_ascii_from_stack
     add $4, %esp
 
-    mov $LONG2, %eax
-    mov %eax, buffer
-    push $buffer
+    # increment value stored at $long2 and pop
+    push $long2
     call increment
     add $4, %esp
 
-    push buffer
+    # print incremented long2 and pop
+    push long2
     call print_ascii_from_stack
     add $4, %esp
 
@@ -63,6 +69,7 @@ _start:
     mov $EXIT, %eax
     xor %ebx, %ebx
     int $0x80
+
 
 print_ascii_from_stack:
     # saves current state of stack
@@ -138,4 +145,3 @@ increment:
     mov %ebp, %esp
     pop %ebp
     ret
-
