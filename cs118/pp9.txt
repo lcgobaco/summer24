@@ -22,5 +22,7 @@ Print the digits
 
 File: decimals.asm
 
+Attempt 4 Feedback
+
 Five lines after the label print_digits, you have the line "mov %edx, msg_digit" This moves four bytes to msg_digit. I think you want to move dl to mdg_digit. Also, choose a smaller test number, one that has only four or five digits. I didn't have the patience to run the entire number through the debugger. I suspect you didn't either. 😊
 - James Hoffman

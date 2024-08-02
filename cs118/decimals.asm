@@ -26,7 +26,7 @@
 
 .global _start
 _start:
-    mov $123456789, %eax    # move integer to eax
+    mov $5734, %eax    # move integer to eax
     xor %esi, %esi          # zero out esi to use as counter
 
 next_digit:
@@ -44,7 +44,7 @@ print_digits:
     je print_newline        # print a new line if counter is zero
 
     pop %edx                # remove top item from stack
-    mov %edx, msg_digit     # copy edx to msg_digit to print out
+    mov %dl, msg_digit     # copy edx to msg_digit to print out
 
     # print out msg_digit
     mov $WRITE, %eax
@@ -60,7 +60,7 @@ print_newline:              # prints new line
     mov $WRITE, %eax
     mov $STDOUT, %ebx
     mov $NEWLINE, %ecx
-    mov %ecx, msg_digit
+    mov %cl, msg_digit
     mov $msg_digit, %ecx    # put address of msg_digit in %ecx
     mov $1, %edx
     int $0x80
