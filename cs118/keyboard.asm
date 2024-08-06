@@ -10,8 +10,8 @@
 # edx: stores maximum number of characters to read
 
 .data
-    numvalue: .long 0       # stores resulting integer
-    buffer: .byte 1        # stores current keystroke
+    numvalue:   .long 0       # stores resulting integer
+    buffer:     .byte 1       # stores current keystroke
 
     # symbol table
     .equ    STDIN,0
