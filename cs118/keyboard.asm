@@ -11,7 +11,7 @@
 
 .data
     numvalue: .long 0       # stores resulting integer
-    buffer: .space 1        # stores current keystroke
+    buffer: .byte 1        # stores current keystroke
 
     # symbol table
     .equ    STDIN,0
